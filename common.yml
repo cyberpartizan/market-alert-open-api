@@ -4,7 +4,20 @@ info:
   version: v1
 
 paths:
- 
+  "/tickers/price":
+    get:
+      tags:
+        - ticket-controller
+      operationId: getTickersPrice
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/TickerPrice"
 components:
   schemas:
     TickerPrice:
