@@ -41,3 +41,8 @@ components:
           type: string
           enum:
             - BYBIT
+    Test:
+      type: object
+      properties:
+        num:
+          type: integer
