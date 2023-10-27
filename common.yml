@@ -1,0 +1,43 @@
+openapi: 3.0.1
+info:
+  title: Common
+  version: v1
+
+paths:
+  "/tickers/price":
+    get:
+      tags:
+        - ticket-controller
+      operationId: getTickersPrice
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/TickerPrice"
+components:
+  schemas:
+    TickerPrice:
+      type: object
+      properties:
+        symbol:
+          type: string
+        broker:
+          type: string
+          enum:
+            - BYBIT
+        price:
+          type: string
+
+    TickerBase:
+      type: object
+      properties:
+        symbol:
+          type: string
+        broker:
+          type: string
+          enum:
+            - BYBIT
