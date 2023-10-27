@@ -4,20 +4,7 @@ info:
   version: v1
 
 paths:
-  "/tickers/price":
-    get:
-      tags:
-        - ticket-controller
-      operationId: getTickersPrice
-      responses:
-        '200':
-          description: OK
-          content:
-            "*/*":
-              schema:
-                type: array
-                items:
-                  "$ref": "#/components/schemas/TickerPrice"
+
 components:
   schemas:
     TickerPrice:
@@ -26,9 +13,7 @@ components:
         symbol:
           type: string
         broker:
-          type: string
-          enum:
-            - BYBIT
+          $ref: '#/components/schemas/BrokerEnum'
         price:
           type: string
 
@@ -41,8 +26,12 @@ components:
           type: string
           enum:
             - BYBIT
-    Test:
-      type: object
-      properties:
-        num:
-          type: integer
+
+    BrokerEnum:
+      type: string
+      enum:
+        - BYBIT
+        - BINANCE
+        - OKEX
+        - POLONIX
+        - HUOBI
