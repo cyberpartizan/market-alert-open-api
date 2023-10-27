@@ -36,9 +36,7 @@ components:
         symbol:
           type: string
         broker:
-          type: string
-          enum:
-            - BYBIT
+          $ref: '#/components/schemas/BrokerEnum'
 
     BrokerEnum:
       type: string
